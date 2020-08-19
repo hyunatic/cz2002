@@ -7,9 +7,9 @@ class P4 {
         System.out.println("Enter Height:");
         int input = sc.nextInt();
 
-        for(int i = 0; i < input; i++){
-            for(int j = i; j < i; j++){
-            if(j % 2 == 0)
+        for(int i = 1; i <= input; i++){
+            for(int j = i; j != 0; j--){
+            if(j % 2 == 1)
                 System.out.print("AA");
             else
                 System.out.print("BB");
