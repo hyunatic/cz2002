@@ -49,15 +49,23 @@ public class Lab2p1 {
                 }
                     break;
                 case 5:
-                    System.out.print("Enter number:");
+                    System.out.println("Enter number:");
                     int number = sc.nextInt();
                     System.out.println("Enter Digit:");
                     int digit = sc.nextInt();
-                    int result3 = position(number,digit);
+                    int result3 = position(number, digit);
                     System.out.println("position = " + result3);
                     break;
-                case 6: /* add extractOddDigits() call */
+                case 6: {
+                    System.out.println("Enter number:");
+                    long num1 = sc.nextLong();
+                    long result4 = extractOddDigits(num1);
+                    if (result4 == 0)
+                        System.out.println("Error Input!!");
+                    else
+                        System.out.println("OddDigits = " + result4);
                     break;
+                }
                 case 7:
                     System.out.println("Program terminating ….");
             }
@@ -117,12 +125,38 @@ public class Lab2p1 {
     public static int position(int n, int digit) {
         int totaldigit = countDigits(n);
         int result = 0;
-        for (int i = 0; i < totaldigit; i++) {
-            if (n % 10 == digit)
+        for (int i = totaldigit; i > 0; i--) {
+            if (n % 10 == digit) {
                 result = i;
+                break;
+            }
             n /= 10;
         }
-        
-        return (result == 0) ? -1 : ++result;
+        return (result == 0) ? -1 : result;
+    }
+
+    public static long extractOddDigits(long n) {
+        if(n < 0)
+            return 0;
+        int totaldigit = countDigits((int)n);
+        int result = 0;
+        for (int i = totaldigit; i > 0; i--) {
+            int lastdigit = (int)n % 10;
+            if (lastdigit % 2 != 0) {
+                result *= 10;
+                result += n % 10;
+            }
+            n /= 10;
+        }
+        if(result == 0)
+            return -1;
+
+        int reverse = 0;
+        while(result != 0){
+            reverse *=10;
+            reverse += result % 10;
+            result /= 10;
+        }
+        return reverse;
     }
 }
