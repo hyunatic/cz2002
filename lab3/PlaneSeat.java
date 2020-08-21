@@ -1,6 +1,6 @@
 class PlaneSeat {
     private int seatID;
-    private boolean assigned;
+    private boolean assigned = false;
     private int customerID;
 
     public PlaneSeat(int seat_id) {
@@ -26,6 +26,6 @@ class PlaneSeat {
 
     public void unAssign() {
         assigned = false;
+        customerID = 0;
     }
 }
-

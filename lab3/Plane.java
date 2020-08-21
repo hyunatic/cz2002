@@ -23,27 +23,26 @@ class Plane {
         }
         return seat;
     }
-
     public void showNumEmptySeats() {
-        System.out.println("Showing SeatID of Empty Seats");
-        for (int i = 1; i <= seat.length; i++) {
+        System.out.println("Showing List of Empty Seats:");
+        for (int i = 0; i < seat.length; i++) {
             if (!seat[i].isOccupied()) {
-                System.out.println(seat[i].getSeatID());
+                System.out.println("SeatID: "+seat[i].getSeatID());
             }
         }
     }
     public void NumEmptySeats() {
-        System.out.println("Showing Number of Empty Seats");
+        //System.out.println("Showing Number of Empty Seats");
         int count = 0;
-        for (int i = 1; i <= seat.length; i++) {
+        for (int i = 0; i < seat.length; i++) {
             if (!seat[i].isOccupied())
                 count++;
         }
-        System.out.println(count);
+        System.out.print(count);
     }
 
     public void showAssignedSeats(boolean bySeatId) {
-        System.out.println("Showing Number of Assigned Seats");
+        //System.out.println("Showing Number of Assigned Seats");
         int count = 0;
         for (int i = 1; i <= seat.length; i++) {
             if (seat[i].isOccupied())
@@ -53,10 +52,15 @@ class Plane {
     }
 
     public void assignSeat(int SeatID, int cust_id) {
-
+        if(!seat[SeatID].isOccupied()){
+            System.out.println("Seat Assigned!");
+            seat[SeatID].assign(cust_id);
+        }
+        else
+            System.out.println("Seat already assigned to a customer");     
     }
 
     public void unAssignSeat(int seatId) {
-
+        seat[seatId].unAssign();
     }
 }
