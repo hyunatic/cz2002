@@ -26,7 +26,7 @@ class P3 {
         System.out.println("---------");
         int k = starting;
         do {
-            System.out.println(j + "      " + j * 1.82);
+            System.out.println(k + "      " + k * 1.82);
             k++;
         } while (k <= ending);
     }
