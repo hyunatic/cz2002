@@ -10,9 +10,12 @@ class P3 {
         System.out.println("Ending Number:");
         int ending = sc.nextInt();
 
+        System.out.println("Increment Number:");
+        int increment = sc.nextInt();
+
         System.out.println("US$    S$");
         System.out.println("---------");
-        for (int i = starting; i <= ending; i++)
+        for (int i = starting; i <= ending; i += increment)
             System.out.println(i + "      " + i * 1.82);
 
         System.out.println("US$    S$");
@@ -20,14 +23,14 @@ class P3 {
         int j = starting;
         while (j <= ending) {
             System.out.println(j + "      " + j * 1.82);
-            j++;
+            j += increment;
         }
         System.out.println("US$    S$");
         System.out.println("---------");
         int k = starting;
         do {
             System.out.println(k + "      " + k * 1.82);
-            k++;
+            k += increment;
         } while (k <= ending);
     }
 }
