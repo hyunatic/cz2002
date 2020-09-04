@@ -78,6 +78,12 @@ public class Lab2p1 {
         int correct = 0;
 
         for (int i = 0; i < 5; i++) {
+            // this part should be 
+  
+            // int randomNum = rand.nextInt((max - min) + 1) + min; 
+            //  int num = (RandObj.nextInt(9)+1);
+            // so 10 + 1 not 9 + 1
+int randomNum = rand.nextInt((max - min) + 1) + min;
             int ran_int1 = rand.nextInt(10) + 1;
             int ran_int2 = rand.nextInt(10) + 1;
 
