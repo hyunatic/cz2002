@@ -83,7 +83,7 @@ public class Lab2p1 {
             // int randomNum = rand.nextInt((max - min) + 1) + min; 
             //  int num = (RandObj.nextInt(9)+1);
             // so 10 + 1 not 9 + 1
-int randomNum = rand.nextInt((max - min) + 1) + min;
+            //int randomNum = rand.nextInt((max - min) + 1) + min;
             int ran_int1 = rand.nextInt(10) + 1;
             int ran_int2 = rand.nextInt(10) + 1;
 
@@ -105,14 +105,13 @@ int randomNum = rand.nextInt((max - min) + 1) + min;
             m -= n;
             result++;
         } while (m > 0);
-        return result--;
+        return --result;
     }
 
     public static int modulus(int m, int n) {
         do {
             m -= n;
         } while (m > 0);
-        System.out.println(m);
         return (m < 0) ? m + n : 0;
     }
 
