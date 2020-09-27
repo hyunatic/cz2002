@@ -20,7 +20,6 @@ class Lab3 {
         (5) Assign a customer to a seat\n \
         (6) Remove a seat assignment\n \
         (7) Exit \
-        """;
         */
         String menu = "(1) Show number of empty seats\n(2) Show the list of empty seats\n(3) Show the list of seat assignments by seat ID\n(4) Show the list of seat assignments by customer ID\n(5) Assign a customer to a seat\n(6) Remove a seat assignment\n(7) Exit";
 
@@ -42,7 +41,7 @@ class Lab3 {
                 break;
             case 3:
                 System.out.println("The seat assignments are as follow:");
-                PlaneSeat seats[] = test.sortSeats();
+                PlaneSeat seats[] = test.sortbySeatID();
                 for (int i = 0; i < seats.length; i++){
                     if(seats[i].isOccupied()){
                         System.out.println("SeatID "+ seats[i].getSeatID() +" assigned to CustomerID "+ seats[i].getCustomerID());
@@ -52,7 +51,12 @@ class Lab3 {
                 break;
             case 4:
                 System.out.println("The seat assignments are as follow:");
-                test.sortSeats();
+                PlaneSeat seats1[] = test.sortbyCustID();
+                for (int i = 0; i < seats1.length; i++){
+                    if(seats1[i].isOccupied()){
+                        System.out.println("SeatID "+ seats1[i].getSeatID() +" assigned to CustomerID "+ seats1[i].getCustomerID());
+                    }
+                }
                 System.out.println("");
                 break;
             case 5:

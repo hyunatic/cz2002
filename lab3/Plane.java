@@ -1,6 +1,7 @@
 class Plane {
     private PlaneSeat seat[] = new PlaneSeat[12];
     private int numEmptySeat;
+    public static int sortingmode = 0;
 
     public Plane() {
         for (int i = 0; i < seat.length; i++) {
@@ -8,8 +9,9 @@ class Plane {
         }
     }
 
-    public PlaneSeat[] sortSeats() {
+    private PlaneSeat[] sortSeats() {
         // Selection Sort
+        System.out.println("Did run");
         PlaneSeat ar[] = new PlaneSeat[12];
         for (int i = 0; i < ar.length; i++) {
             ar[i] = new PlaneSeat(i + 1);
@@ -21,7 +23,9 @@ class Plane {
         for (int i = 0; i < ar.length - 1; i++) {
             sel = i;
             for (int j = i + 1; j < ar.length; j++) {
-                if (ar[j].getCustomerID() < ar[sel].getCustomerID())
+                if (ar[j].getCustomerID() > ar[sel].getCustomerID() && (sortingmode == 0))
+                    sel = j;
+                else if((ar[j].getSeatID() < ar[sel].getSeatID()) && (sortingmode == 1))
                     sel = j;
             }
             temp = ar[sel];
@@ -70,5 +74,15 @@ class Plane {
 
     public void unAssignSeat(int seatId) {
         seat[seatId].unAssign();
+    }
+    public PlaneSeat[] sortbyCustID(){
+        sortingmode = 1;
+        PlaneSeat [] result = sortSeats();
+        return result;
+    }
+    public PlaneSeat[] sortbySeatID(){
+        sortingmode = 0;
+        PlaneSeat [] result = sortSeats();
+        return result;
     }
 }
