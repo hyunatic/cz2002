@@ -2,7 +2,7 @@ import java.text.BreakIterator;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-public class Shape2DMenu {
+public class Shape2DApp {
     
     public static void main(String[] args)
     {
