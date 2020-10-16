@@ -7,6 +7,6 @@ public class Cuboid extends Rectangle{
         this.height = height;
     }
     public double CalculateArea(){
-        return (2 * super.CalculateArea()) * (2 * breadth * height) * (2 * length * breadth);
+        return (2 * super.CalculateArea()) + (2 * breadth * height) + (2 * length * breadth);
     }
 }
