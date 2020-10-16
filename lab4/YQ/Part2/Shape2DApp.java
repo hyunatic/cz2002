@@ -27,7 +27,7 @@ public class Shape2DApp {
             int type = scan.nextInt();
             ShapeCreation(scan,type,list);
         } 
-        menu(scan,list);
+        DisplayMenu(scan,list);
     }
     public static void ShapeCreation(Scanner scan,int type,ArrayList<Shape> list){
         double w;
