@@ -1,9 +1,3 @@
 ﻿  Animal.cpp
-c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(243): error C2039: 'eat': is not a member of 'Animal'
-  c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(7): note: see declaration of 'Animal'
-c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(249): error C2039: 'eat': is not a member of 'Animal'
-  c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(7): note: see declaration of 'Animal'
-c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(255): error C2039: 'eat': is not a member of 'Animal'
-  c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(7): note: see declaration of 'Animal'
-c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(263): error C2039: 'eat': is not a member of 'Animal'
-  c:\users\zhenw\desktop\oodp\lab5new\lab5new\animal.cpp(7): note: see declaration of 'Animal'
+C:\Users\zw\Desktop\cz2002\lab5ZW\lab5New\Animal.cpp(64): warning C4715: 'Animal::colorMapper': not all control paths return a value
+  lab5New.vcxproj -> C:\Users\zw\Desktop\cz2002\lab5ZW\Debug\lab5New.exe

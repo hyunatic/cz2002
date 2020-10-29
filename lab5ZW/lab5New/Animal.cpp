@@ -1,5 +1,6 @@
 #include <iostream>
 #include <string>
+#include <map>
 
 using namespace std;
 enum COLOR { Green, Blue, White, Black, Brown };
@@ -19,10 +20,9 @@ public:
 
 	//allow dynamic binding / polymorphism ( Overrriding is allowed ) 
 	// not sure if can remove const or not please check
-	virtual void speak()  {
+	virtual void speak() const {
 		cout << "Animal speaks " << endl;
 	}
-	void move() const { }
 	void setName(string iname) {
 		_name = iname;
 	}
@@ -91,12 +91,13 @@ public:
 	~Mammal() {
 		cout << "destructing Mammal object " << endl;
 	}
-	virtual void eat()  {
+	virtual void eat() const {
 		cout << "Mammal eat" << endl;
 	}
-	virtual void move() {
+    virtual void move() const {
 		cout << "move mammal" << endl;
 	}
+
 };
 class Dog :public Mammal
 {
@@ -117,13 +118,13 @@ public:
 	~Dog() {
 		cout << "Dog destructor" << endl;
 	}
-	void speak() {
+	void speak() const{
 		cout << "Dog WOOF " << endl;
 	}
-	void move() {
+	void move(){
 		cout << "Dog Move" << endl;
 	}
-	void eat() {
+	void eat() const{
 		cout << "Dog eat " << endl;
 	}
 };
@@ -185,9 +186,9 @@ int main() {
 	//Mammal mammal_1("Mammal is ",Blue);
 	//mammal_1.speak();
 	//dog fuctions are being referenced correctly
-	Dog dog_1("JackTerrier ", Green, " ZhenWei");
-	dog_1.speak();
-	dog_1.move();
+	//Dog dog_1("JackTerrier ", Green, " ZhenWei");
+//	dog_1.speak();
+//	dog_1.move();
 	// 3.3
 	//3.3 1) Constructors for Animal, Mammal and Dog are called
 	// Animal speaks  is called, while move dog is called. 
@@ -196,20 +197,20 @@ int main() {
 	// as for speaks, because this pointer is initially an
 	// Animal class, it calls the animal speak.
 	//downcasting
-	Animal *animalPtr = new Dog("Lassie", White, "Andy");
+	//Animal *animalPtr = new Dog("Lassie", White, "Andy");
 	//check if downcasting is ok
-	Dog* dog1 = dynamic_cast<Dog*>(animalPtr);
-	if (dog1 != NULL) {
-		cout << "valid cast" << endl;
-	}
+	//Dog* dog1 = dynamic_cast<Dog*>(animalPtr);
+	//if (dog1 != NULL) {
+//		cout << "valid cast" << endl;
+//	}
 	// 1c) when virtual keyword is removed from speak
 	// animal speak is called. polymorphic effect is removed
 	// this is observed when const is removed .
 	// if const is not removed, there is no difference. 
 	// both will call the animal speak .
-	animalPtr->speak();
-	animalPtr->move();
-	delete animalPtr;
+//	animalPtr->speak();
+	//animalPtr->move();
+	//delete animalPtr;
 	//3.3 Part 3
 	// with const output is all Animal speak.
 	// ///speak class is virtual , it is a virtual function with implementation
@@ -225,8 +226,10 @@ int main() {
 	cout << "Program exiting …. " << endl;
 	//4) The array will not work when it is array of animal object.
 	// 
+	
 	Mammal **zoo= new Mammal*[3];
-	zoo[0] = new Dog();
+//must remember to delete.
+	
 	zoo[1] = new Cat();
 	zoo[2] = new Lion();
 	int choice = 1;
@@ -237,14 +240,31 @@ int main() {
 		cin >> choice;
 		// when there is a new there should be a delete
 
+		std::map<std::string, COLOR> nodeMap;
+		//make a hash map to map input string to enum color
+		nodeMap["White"] = COLOR::White;
+		nodeMap["Green"] = COLOR::Green;
+		nodeMap["Black"] = COLOR::Black;
+		nodeMap["Brown"] = COLOR::Brown;
+		nodeMap["Blue"] = COLOR::Blue;
 		switch (choice)
 		{
 		case 1:
-			zoo[0]->move();
-			zoo[0]->speak();
-			zoo[0]->eat();
+		{
+			string name = ""; string owner = ""; string color = "";
+			cin >> name;
+			cin >> color;
+			cin >> owner;
+			COLOR finalColor = nodeMap[color];
+			Dog dog(name, finalColor, owner);
+			Mammal& dogRef = dog;
+			dogRef.move();
+			dogRef.speak();
+			dogRef.eat();
+			zoo[0] = &dog;
 			cout << "Sent dog to zoo" << endl;
 			break;
+		}
 		case 2:
 			zoo[1]->move();
 			zoo[1]->speak();
