@@ -1,3 +1,0 @@
-﻿  Animal.cpp
-C:\Users\zw\Desktop\cz2002\lab5ZW\lab5New\Animal.cpp(64): warning C4715: 'Animal::colorMapper': not all control paths return a value
-  lab5New.vcxproj -> C:\Users\zw\Desktop\cz2002\lab5ZW\Debug\lab5New.exe
