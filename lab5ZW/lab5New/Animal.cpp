@@ -97,7 +97,6 @@ public:
     virtual void move() const {
 		cout << "move mammal" << endl;
 	}
-
 };
 class Dog :public Mammal
 {
@@ -113,7 +112,6 @@ public:
 		//objName = name;
 		//objColor = color;
 		cout << name << Animal::colorMapper(color) << owner << " Constructor Dog"<< endl;
-
 	}
 	~Dog() {
 		cout << "Dog destructor" << endl;
@@ -174,7 +172,6 @@ public:
 	}
 };
 
-
 int main() {
 	//3.1 & 3.2
 	//Because animal is now an abstract pure class, there are pure functions that have not been implemented
@@ -186,7 +183,7 @@ int main() {
 	//Mammal mammal_1("Mammal is ",Blue);
 	//mammal_1.speak();
 	//dog fuctions are being referenced correctly
-	//Dog dog_1("JackTerrier ", Green, " ZhenWei");
+	//Dog dog_1("JackTerrier ", Green, " albert");
 //	dog_1.speak();
 //	dog_1.move();
 	// 3.3
@@ -222,8 +219,9 @@ int main() {
 	//Mammal aniVal = dogi;
 	//aniPtr->speak();
 	//aniRef.speak();
-	//aniVal.speak();	// output currently is all animal speak because speak() is not implemented in mammal
-	cout << "Program exiting …. " << endl;
+	//aniVal.speak();
+	// output currently is all animal speak because speak() is not implemented in mammal
+	cout << "Program exiting... " << endl;
 	//4) The array will not work when it is array of animal object.
 	// 
 	
@@ -298,4 +296,4 @@ int main() {
 	}
 	system("pause");
 	return 0;
-}
+}

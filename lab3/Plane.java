@@ -1,6 +1,5 @@
 class Plane {
     private PlaneSeat seat[] = new PlaneSeat[12];
-    private int numEmptySeat;
     public static int sortingmode = 0;
 
     public Plane() {
@@ -11,7 +10,7 @@ class Plane {
 
     private PlaneSeat[] sortSeats() {
         // Selection Sort
-        System.out.println("Did run");
+        //System.out.println("Did run");
         PlaneSeat ar[] = new PlaneSeat[12];
         for (int i = 0; i < ar.length; i++) {
             ar[i] = new PlaneSeat(i + 1);
@@ -20,19 +19,34 @@ class Plane {
 
         PlaneSeat temp = new PlaneSeat(1);
         int sel;
-        for (int i = 0; i < ar.length - 1; i++) {
-            sel = i;
-            for (int j = i + 1; j < ar.length; j++) {
-                if (ar[j].getCustomerID() > ar[sel].getCustomerID() && (sortingmode == 0))
-                    sel = j;
-                else if((ar[j].getSeatID() < ar[sel].getSeatID()) && (sortingmode == 1))
-                    sel = j;
-            }
-            temp = ar[sel];
-            ar[sel] = ar[i];
-            ar[i] = temp;
+        switch (sortingmode){
+            case 0:
+                for (int i = 0; i < ar.length - 1; i++) {
+                    sel = i;
+                    for (int j = i + 1; j < ar.length; j++) {
+                        if (ar[j].getCustomerID() > ar[sel].getCustomerID())
+                            sel = j;
+                        }
+                    temp = ar[sel];
+                    ar[sel] = ar[i];
+                    ar[i] = temp;
+                }
+                return ar;
+            case 1:
+                for (int i = 0; i < ar.length - 1; i++) {
+                    sel = i;
+                    for (int j = i + 1; j < ar.length; j++) {
+                        if(ar[j].getSeatID() < ar[sel].getSeatID())
+                            sel = j;
+                    }
+                    temp = ar[sel];
+                    ar[sel] = ar[i];
+                    ar[i] = temp;
+                }
+                return ar;
+            default:
+             return ar;
         }
-        return ar;
     }
 
     public void showNumEmptySeats() {
